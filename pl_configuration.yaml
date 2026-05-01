@@ -101,13 +101,3 @@ views:
         type: markdown
         content: Panel konfiguracji pompy SPRSun CGK-040V3l
         text_only: true
-    footer:
-      card:
-        type: button
-        name: Powrót do Głównego
-        icon: mdi:arrow-left-bold-circle
-        tap_action:
-          action: navigate
-          navigation_path: /dashboard-glowny/0
-        show_name: true
-        show_icon: true
