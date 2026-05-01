@@ -5,7 +5,13 @@ Simply integration for SPRSUN-CGK_040V3L heat pump (and other SPRSUN heatpumps w
 Modbus-based integration for Sprsun heat pumps using an EW-11 adapter.
 
 ## Prerequisites
-Configure the **EW-11 adapter** as shown in the `EW-11_configuration.jpg` image.
+Configure the **EW-11 adapter** as shown on image.
+
+<img width="1062" height="880" alt="{8D3E6804-855B-49FA-808D-C3777B4DC776}" src="https://github.com/user-attachments/assets/7618d6bc-c7ba-432b-84b8-35005affc8ce" />
+<img width="1064" height="837" alt="{DC43BC1E-84FB-4C08-998C-2B06FA5818E4}" src="https://github.com/user-attachments/assets/65e04a39-859e-4297-a8cb-6efc2509fa53" />
+(Remember to remove original configuration then add new card with TCP Server).
+!!IF YOU WANT TO RESTORE ORIGINAL SPRSUN CLOUD "HEATPUMP" APP YOU SHOULD MAKE BACKUP OF YOUR EW-11 CONFIGURATION!!
+
 
 ## Installation
 1. Copy the provided YAML configuration code into your `configuration.yaml` file.
