@@ -1,0 +1,103 @@
+views:
+  - type: sections
+    max_columns: 4
+    title: Heat Pump
+    path: heat-pump
+    sections:
+      - type: grid
+        cards:
+          - type: entities
+            title: ⚡ Control & Status
+            entities:
+              - entity: switch.zasilanie_pompy_smart
+                name: Pump Power
+              - entity: input_select.tryb_pracy_pompy
+                name: Current Operating Mode
+              - entity: binary_sensor.status_jednostki
+                name: System Status
+      - type: grid
+        cards:
+          - type: entities
+            title: 🌡️ All Temperatures
+            entities:
+              - entity: sensor.temp_zasilania
+                name: Flow Temperature
+                icon: mdi:thermometer-plus
+              - entity: sensor.temp_powrotu
+                name: Return Temperature
+                icon: mdi:thermometer-minus
+              - entity: sensor.temp_cwu_bojler
+                name: Hot Water (Boiler)
+                icon: mdi:water-boiler
+              - entity: sensor.temp_zewnetrzna
+                name: Outdoor Temperature
+                icon: mdi:sun-thermometer
+      - type: grid
+        cards:
+          - type: entities
+            title: 🎛️ Settings
+            entities:
+              - entity: input_number.nastawa_co
+                name: Target Heating Temp
+              - entity: sensor.odczyt_nastawy_co
+                name: Current Pump Setting (Heating)
+              - type: divider
+              - entity: input_number.nastawa_cwu
+                name: Target Hot Water Temp
+              - entity: sensor.odczyt_nastawy_cwu
+                name: Current Pump Setting (Hot Water)
+      - type: grid
+        cards:
+          - type: entities
+            title: ⚙️ Device Operation
+            entities:
+              - entity: binary_sensor.praca_sprezarki
+                name: Compressor Status
+              - entity: binary_sensor.pompa_obiegowa
+                name: Circulation Pump
+              - entity: sensor.prad_sprezarki
+                name: Current Draw (Amperes)
+              - entity: sensor.pobor_mocy_pompy
+                name: Instant Power (Watts)
+      - type: grid
+        cards:
+          - type: entities
+            title: 💰 Consumption Stats (kWh)
+            entities:
+              - entity: sensor.zuzycie_pompy_dzien
+                name: Today's Consumption
+              - entity: sensor.zuzycie_pompy_tydzien
+                name: This Week
+              - entity: sensor.zuzycie_pompy_miesiac
+                name: This Month
+              - entity: sensor.zuzycie_pompy_rok
+                name: This Year
+      - type: grid
+        cards:
+          - type: custom:apexcharts-card
+            graph_span: 24h
+            header:
+              show: true
+              title: Power Consumption (W) - last 24h
+              show_states: true
+              colorize_states: true
+            series:
+              - entity: sensor.pobor_mocy_pompy
+                name: Instant Power
+                type: area
+                color: '#ff9800'
+                curve: stepline
+                stroke_width: 2
+                fill_raw: last
+                group_by:
+                  func: max
+                  duration: 1m
+            update_interval: 10s
+    header:
+      layout: responsive
+      badges_position: bottom
+      badges_wrap: scroll
+      card:
+        type: markdown
+        content: SPRSun CGK-040V3l Heat Pump Control Panel
+        text_only: true
