@@ -12,6 +12,10 @@ Configure the **EW-11 adapter** as shown on image.
 (Remember to remove original configuration then add new card with TCP Server).
 !!IF YOU WANT TO RESTORE ORIGINAL SPRSUN CLOUD "HEATPUMP" APP YOU SHOULD MAKE BACKUP OF YOUR EW-11 CONFIGURATION!!
 
+Put IP address of your EW-11 in this tab (configuration.yaml)
+<img width="290" height="214" alt="{BD300DB2-693F-4A26-8DB5-BB14CDDA0EFD}" src="https://github.com/user-attachments/assets/6b28444f-165a-4201-9687-dfce834b2006" />
+
+
 
 ## Installation
 1. Copy the provided YAML configuration code into your `configuration.yaml` file.
