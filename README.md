@@ -18,6 +18,7 @@ Put IP address of your EW-11 in this tab (configuration.yaml)
 
 
 ## Installation
+You can choose your language. For polish people - pl_configuration.yaml.
 1. Copy the provided YAML configuration code into your `configuration.yaml` file.
 2. Restart Home Assistant. The Modbus integration will be initialized automatically, and the entities will become available.
 
