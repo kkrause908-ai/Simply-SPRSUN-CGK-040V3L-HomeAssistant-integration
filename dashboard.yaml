@@ -1,0 +1,117 @@
+views:
+  - type: sections
+    max_columns: 4
+    title: Pompa ciepła
+    path: pompa-ciepla
+    sections:
+      - type: grid
+        cards:
+          - type: entities
+            title: ⚡ Sterowanie i Status
+            entities:
+              - entity: switch.zasilanie_pompy_smart
+                name: Zasilanie pompy
+              - entity: input_select.tryb_pracy_pompy
+                name: Aktualny tryb pracy
+              - entity: binary_sensor.status_jednostki
+                name: Status systemu
+      - type: grid
+        cards:
+          - type: entities
+            title: 🌡️ Wszystkie Temperatury
+            entities:
+              - entity: sensor.temp_zasilania
+                name: Temperatura wylotu (Zasilanie)
+                icon: mdi:thermometer-plus
+              - entity: sensor.temp_powrotu
+                name: Temperatura wlotu (Powrót)
+                icon: mdi:thermometer-minus
+              - entity: sensor.temp_cwu_bojler
+                name: Ciepła woda (Bojler)
+                icon: mdi:water-boiler
+              - entity: sensor.temp_zewnetrzna
+                name: Temperatura zewnętrzna
+                icon: mdi:sun-thermometer
+      - type: grid
+        cards:
+          - type: entities
+            title: 🎛️ Nastawy
+            entities:
+              - entity: input_number.nastawa_co
+                name: Zadana temp. CO
+              - entity: sensor.odczyt_nastawy_co
+                name: Aktualnie na pompie (CO)
+              - type: divider
+              - entity: input_number.nastawa_cwu
+                name: Zadana temp. CWU
+              - entity: sensor.odczyt_nastawy_cwu
+                name: Aktualnie na pompie (CWU)
+      - type: grid
+        cards:
+          - type: entities
+            title: ⚙️ Praca Urządzenia
+            entities:
+              - entity: binary_sensor.praca_sprezarki
+                name: Praca sprężarki
+              - entity: binary_sensor.pompa_obiegowa
+                name: Pompa obiegowa
+              - entity: sensor.prad_sprezarki
+                name: Pobór prądu (Ampery)
+              - entity: sensor.pobor_mocy_pompy
+                name: Moc chwilowa (Waty)
+      - type: grid
+        cards:
+          - type: entities
+            title: 💰 Statystyki Zużycia (kWh)
+            entities:
+              - entity: sensor.zuzycie_pompy_dzien
+                name: Zużycie dzisiaj
+              - entity: sensor.zuzycie_pompy_tydzien
+                name: W tym tygodniu
+              - entity: sensor.zuzycie_pompy_miesiac
+                name: W tym miesiącu
+              - entity: sensor.zuzycie_pompy_rok
+                name: W tym roku
+      - type: grid
+        cards:
+          - type: custom:apexcharts-card
+            graph_span: 24h
+            header:
+              show: true
+              title: Pobór mocy (W) - ostatnie 24h
+              show_states: true
+              colorize_states: true
+            series:
+              - entity: sensor.pobor_mocy_pompy
+                name: Moc chwilowa
+                type: area
+                color: '#ff9800'
+                curve: stepline
+                stroke_width: 2
+                fill_raw: last
+                group_by:
+                  func: max
+                  duration: 1m
+            update_interval: 10s
+    header:
+      layout: responsive
+      badges_position: bottom
+      badges_wrap: scroll
+      card:
+        type: markdown
+        content: Panel konfiguracji pompy SPRSun CGK-040V3l
+        text_only: true
+    footer:
+      card:
+        type: button
+        name: Powrót do Głównego
+        icon: mdi:arrow-left-bold-circle
+        tap_action:
+          action: navigate
+          navigation_path: /dashboard-glowny/0
+        show_name: true
+        show_icon: true
+        visibility:
+          - condition: user
+            users:
+              - 41b94e14c8f74a7d9fe7a9b095f978c8
