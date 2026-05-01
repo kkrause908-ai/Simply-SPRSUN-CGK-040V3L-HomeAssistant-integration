@@ -29,4 +29,14 @@ You can choose your language. For polish people - pl_configuration.yaml.
 <img width="300" height="238" alt="{1B82751C-F88C-4440-B062-6028B772E0EC}" src="https://github.com/user-attachments/assets/9f8f3c1e-1c4e-42ed-9659-c00e458abf47" />
 
 
+
+
+
+
+
+Well done. 
+<img width="1631" height="806" alt="{0BB4451D-29B3-406F-9C11-7F92158740FC}" src="https://github.com/user-attachments/assets/257dedc1-7f06-4c17-bd99-02b2fb64b98b" />
+
+
+
    
